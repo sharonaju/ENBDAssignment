@@ -11,7 +11,7 @@ class PhotoListViewModel {
     
     var isLoading: Bool = false {
         didSet {
-            self.updateLoadingStatus?()
+            updateLoadingStatus?()
         }
     }
     
@@ -27,20 +27,35 @@ class PhotoListViewModel {
         }
     }
     
+    var page: Int = 0
+    
+    var isPageRefreshing:Bool = false {
+        didSet {
+            updatePaginationStatus?()
+        }
+    }
+    
     var updateLoadingStatus: (() -> Void)?
     
     var showError: (() -> Void)?
+    
+    var showEmptyData: (() -> Void)?
+    
+    var updatePaginationStatus: (() -> Void)?
+    
     
      private var cellViewModels: [PhotoListCellViewModel] = [PhotoListCellViewModel]()
     
     func fetchData() {
         isLoading = true
+        isPageRefreshing = true
         APIService.shared.search(keyWord: keyWord) { (photos, error) in
             if let searchResults = photos {
                 self.cellViewModels = self.createCellViewModel(images: searchResults)
             } else {
                 self.errorMessage = error?.errorDescription ?? ""
             }
+            self.isPageRefreshing = false
             self.isLoading = false
 
         }
@@ -73,6 +88,12 @@ class PhotoListViewModel {
     
     func keywordAfterRemovingWhitespace(keyword: String) -> String {
         return keyword.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    func getPhotoDetail(at indexPath: IndexPath) -> PhotoDetail {
+        
+        let photo = cellViewModels[indexPath.row]
+        return PhotoDetail(largeImageURL: photo.bigImageURL, likes: photo.likes, comments: photo.comments)
     }
 }
 

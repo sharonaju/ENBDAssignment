@@ -19,7 +19,7 @@ final class APIService: NSObject {
     
     func search(keyWord: String, completion: @escaping ([Photo]?, ServiceError?) -> ()) {
         
-     getData(searchQuery: keyWord) { (result, error) in
+        getData(searchQuery: keyWord) { (result, error) in
         let dictionaries = result as? NSDictionary
         let hits = dictionaries?.value(forKey: "hits") as? [JSON]
         completion(hits?.compactMap(Photo.init), error)
@@ -27,7 +27,7 @@ final class APIService: NSObject {
         
     }
     
-   private func getData(searchQuery: String, completion: @escaping (Any?, ServiceError?) -> ()) {
+    private func getData(searchQuery: String, completion: @escaping (Any?, ServiceError?) -> ()) {
         
         // Checking Network Connectivity
         if !isNetworkAvailable() {

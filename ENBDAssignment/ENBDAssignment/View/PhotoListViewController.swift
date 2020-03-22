@@ -25,21 +25,39 @@ class PhotoListViewController: UIViewController, UISearchBarDelegate {
         searchTextField.text = "Apple"
         prepareCollectionView()
         prepareUI()
+        hideKeyboardWhenTappedAround()
         search(keyWord: searchTextField.text ?? "")
     }
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resignTextField))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
     
+    @objc func resignTextField() {
+        searchTextField.resignFirstResponder()
+    }
     func prepareUI() {
+        searchTextField.resignFirstResponder()
+        prepareUIForLoading()
+        prepareUIForErrorHandling()
+    }
+    
+    func prepareUIForLoading() {
         viewModel.updateLoadingStatus = { [weak self] () in
-                   DispatchQueue.main.async {
-                       let isLoading = self?.viewModel.isLoading ?? false
-                       if isLoading {
-                           self?.activityIndicator.startAnimating()
-                       }else {
-                           self?.activityIndicator.stopAnimating()
-                           self?.collectionView.reloadData()
-                       }
-                   }
-               }
+                          DispatchQueue.main.async {
+                              let isLoading = self?.viewModel.isLoading ?? false
+                              if isLoading {
+                                  self?.activityIndicator.startAnimating()
+                              }else {
+                                  self?.activityIndicator.stopAnimating()
+                                  self?.collectionView.reloadData()
+                              }
+                          }
+                      }
+    }
+    
+    func prepareUIForErrorHandling() {
         viewModel.showError = { [weak self] () in
             DispatchQueue.main.async {
                 if let errorMessage = self?.viewModel.errorMessage, errorMessage.count > 0  {
@@ -48,7 +66,6 @@ class PhotoListViewController: UIViewController, UISearchBarDelegate {
         }
         }
     }
-    
     func prepareCollectionView() {
         collectionView.register(UINib(nibName: "PhotoCell", bundle: .main), forCellWithReuseIdentifier: "PhotoCell")
         let layout = UICollectionViewFlowLayout()
@@ -57,7 +74,6 @@ class PhotoListViewController: UIViewController, UISearchBarDelegate {
         layout.minimumLineSpacing = 14
         collectionView.collectionViewLayout = layout
     }
-    
     
     func search(keyWord: String) {
         viewModel.keyWord = keyWord
@@ -70,6 +86,7 @@ class PhotoListViewController: UIViewController, UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchTextField.resignFirstResponder()
         if let keyword = searchTextField.text {
         let keywordOptimized = viewModel.keywordAfterRemovingWhitespace(keyword: keyword)
             if keywordOptimized.count != 0 {
@@ -104,6 +121,15 @@ extension PhotoListViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.imageView?.sd_setImage(with: URL(string: photo.previewURL), completed: nil)
         cell.tagsLabel.text = "Tags: \(photo.tags)"
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photoDetail = viewModel.getPhotoDetail(at: indexPath)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailVC = storyBoard.instantiateViewController(withIdentifier: "PhotoDetailViewController") as! PhotoDetailViewController
+        detailVC.viewModel = PhotoDetailViewModel(model: photoDetail)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+      
     }
     
 }
