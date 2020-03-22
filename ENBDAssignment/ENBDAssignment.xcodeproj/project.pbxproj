@@ -20,6 +20,7 @@
 		8F58037A24271A94006705C7 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F58037924271A94006705C7 /* ServiceError.swift */; };
 		8F58037D24271DCB006705C7 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F58037B24271DCB006705C7 /* PhotoCell.swift */; };
 		8F58037E24271DCB006705C7 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F58037C24271DCB006705C7 /* PhotoCell.xib */; };
+		8F58038024271FB3006705C7 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F58037F24271FB3006705C7 /* PhotoListViewModel.swift */; };
 		B43E447DFF7FD7034136ED92 /* Pods_ENBDAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A904C95EB345A763EB3465C /* Pods_ENBDAssignmentTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		8F58037924271A94006705C7 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		8F58037B24271DCB006705C7 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		8F58037C24271DCB006705C7 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
+		8F58037F24271FB3006705C7 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
 		98F8CC4FB553E3E7D9942616 /* Pods-ENBDAssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ENBDAssignmentTests.release.xcconfig"; path = "Target Support Files/Pods-ENBDAssignmentTests/Pods-ENBDAssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		ADAAB1D91CD5E9B08D6BCEBA /* Pods-ENBDAssignmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ENBDAssignmentTests.debug.xcconfig"; path = "Target Support Files/Pods-ENBDAssignmentTests/Pods-ENBDAssignmentTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +148,7 @@
 		8F58037224271895006705C7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8F58037F24271FB3006705C7 /* PhotoListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				8F580376242718F1006705C7 /* Photo.swift in Sources */,
 				8F580378242719A5006705C7 /* APIService.swift in Sources */,
 				8F580354242717F6006705C7 /* PhotoListViewController.swift in Sources */,
+				8F58038024271FB3006705C7 /* PhotoListViewModel.swift in Sources */,
 				8F580350242717F6006705C7 /* AppDelegate.swift in Sources */,
 				8F580352242717F6006705C7 /* SceneDelegate.swift in Sources */,
 			);

@@ -27,7 +27,7 @@ final class APIService: NSObject {
         
     }
     
-    func getData(searchQuery: String, completion: @escaping (Any?, ServiceError?) -> ()) {
+   private func getData(searchQuery: String, completion: @escaping (Any?, ServiceError?) -> ()) {
         
         // Checking Network Connectivity
         if !isNetworkAvailable() {

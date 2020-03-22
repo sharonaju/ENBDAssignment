@@ -20,5 +20,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4CF20B7D-519B-4872-87DF-74559B3DDAC4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ENBDAssignment/ViewModel/PhotoListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "fetchData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4CF20B7D-519B-4872-87DF-74559B3DDAC4 - 23612f8a1957ff6f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ENBDAssignment.PhotoListViewModel.fetchData() -&gt; ()"
+                  moduleName = "ENBDAssignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Anju/Documents/Projects/ENBDAssignment/ENBDAssignment/ENBDAssignment/ViewModel/PhotoListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "46">
+               </Location>
+               <Location
+                  uuid = "4CF20B7D-519B-4872-87DF-74559B3DDAC4 - 7511e4487f0a9409"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;ENBDAssignment.Photo&gt;&gt;, Swift.Optional&lt;ENBDAssignment.ServiceError&gt;) -&gt; () in ENBDAssignment.PhotoListViewModel.fetchData() -&gt; ()"
+                  moduleName = "ENBDAssignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Anju/Documents/Projects/ENBDAssignment/ENBDAssignment/ENBDAssignment/ViewModel/PhotoListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "178">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
