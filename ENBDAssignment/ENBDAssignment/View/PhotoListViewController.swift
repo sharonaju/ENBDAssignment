@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PhotoListViewController: UIViewController, UISearchBarDelegate {
     
@@ -21,8 +22,8 @@ class PhotoListViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        collectionView.register(UINib(nibName: "PhotoCell", bundle: .main), forCellWithReuseIdentifier: "PhotoCell")
         searchTextField.text = "Apple"
+        prepareCollectionView()
         prepareUI()
         search(keyWord: searchTextField.text ?? "")
     }
@@ -47,6 +48,16 @@ class PhotoListViewController: UIViewController, UISearchBarDelegate {
         }
         }
     }
+    
+    func prepareCollectionView() {
+        collectionView.register(UINib(nibName: "PhotoCell", bundle: .main), forCellWithReuseIdentifier: "PhotoCell")
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 150, height: 150)
+        layout.minimumInteritemSpacing = 4
+        layout.minimumLineSpacing = 14
+        collectionView.collectionViewLayout = layout
+    }
+    
     
     func search(keyWord: String) {
         viewModel.keyWord = keyWord
@@ -78,24 +89,22 @@ class PhotoListViewController: UIViewController, UISearchBarDelegate {
 }
 
 
-extension PhotoListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PhotoListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: UICollectionViewDataSource
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("number Of Cells == \(viewModel.numberOfCells)")
        return viewModel.numberOfCells
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          let cell = collectionView
-           .dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
-         cell.backgroundColor = .black
-
-                return cell
+           .dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
+        let photo = viewModel.getCellViewModel(at: indexPath)
+        cell.imageView?.sd_setImage(with: URL(string: photo.previewURL), completed: nil)
+        cell.tagsLabel.text = "Tags: \(photo.tags)"
+        return cell
     }
-    
-    
     
 }
 

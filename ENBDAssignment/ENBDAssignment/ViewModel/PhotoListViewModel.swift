@@ -28,21 +28,21 @@ class PhotoListViewModel {
     }
     
     var updateLoadingStatus: (() -> Void)?
+    
     var showError: (() -> Void)?
-
     
      private var cellViewModels: [PhotoListCellViewModel] = [PhotoListCellViewModel]()
     
     func fetchData() {
         isLoading = true
         APIService.shared.search(keyWord: keyWord) { (photos, error) in
-            self.isLoading = false
             if let searchResults = photos {
                 self.cellViewModels = self.createCellViewModel(images: searchResults)
             } else {
                 self.errorMessage = error?.errorDescription ?? ""
             }
-            
+            self.isLoading = false
+
         }
         
     }
@@ -50,8 +50,12 @@ class PhotoListViewModel {
     func createCellViewModel(images: [Photo]) -> [PhotoListCellViewModel] {
         var cellViewModels = [PhotoListCellViewModel]()
         for item in images {
-            if let previewURL = item.previewURL {
-                let cellViewModel = PhotoListCellViewModel(imageURL: previewURL, tags: item.tags)
+            if let previewURL = item.previewURL, let bigImageURL = item.largeImageURL, let likesCount = item.likes, let comments = item.comments {
+                let tags: [String] = item.tags?.components(separatedBy: ",") ?? []
+                let tagsCustomized = tags.map{$0.capitalized}
+                let firstThreeTags = Array(tagsCustomized.prefix(3)) // To get the maximum 3 tags
+                let tagString = firstThreeTags.joined(separator: ",")
+                let cellViewModel = PhotoListCellViewModel(previewURL: previewURL, bigImageURL: bigImageURL, likes: likesCount, comments: comments, tags: tagString)
                 cellViewModels.append(cellViewModel)
             }
         }
@@ -63,12 +67,19 @@ class PhotoListViewModel {
         return cellViewModels.count
     }
     
+    func getCellViewModel(at indexPath: IndexPath) -> PhotoListCellViewModel {
+        return cellViewModels[indexPath.row]
+    }
+    
     func keywordAfterRemovingWhitespace(keyword: String) -> String {
         return keyword.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
 struct PhotoListCellViewModel {
-    let imageURL: String
-    let tags: [String]
+    let previewURL: String
+    let bigImageURL: String
+    let likes: Int
+    let comments: Int
+    let tags: String
 }

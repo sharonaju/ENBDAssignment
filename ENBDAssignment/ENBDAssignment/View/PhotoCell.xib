@@ -9,25 +9,35 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PhotoCell" id="gTV-IL-0wX" customClass="PhotoCell" customModule="ENBDAssignment" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bIe-N7-jzh">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="129.5"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upZ-OL-Jzo">
+                        <rect key="frame" x="0.0" y="129.5" width="150" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="upZ-OL-Jzo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="113-Fp-yaf"/>
                 <constraint firstItem="bIe-N7-jzh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5sF-fG-Gt2"/>
                 <constraint firstItem="bIe-N7-jzh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="AMz-EV-ybF"/>
-                <constraint firstAttribute="bottom" secondItem="bIe-N7-jzh" secondAttribute="bottom" id="THg-Gf-wis"/>
+                <constraint firstItem="upZ-OL-Jzo" firstAttribute="top" secondItem="bIe-N7-jzh" secondAttribute="bottom" id="Th0-3z-qbb"/>
                 <constraint firstAttribute="trailing" secondItem="bIe-N7-jzh" secondAttribute="trailing" id="gjX-JL-VWR"/>
+                <constraint firstAttribute="trailing" secondItem="upZ-OL-Jzo" secondAttribute="trailing" id="h91-e0-yNh"/>
+                <constraint firstAttribute="bottom" secondItem="upZ-OL-Jzo" secondAttribute="bottom" id="tTw-iH-Z55"/>
             </constraints>
             <connections>
                 <outlet property="imageView" destination="bIe-N7-jzh" id="xRy-wB-1U1"/>
+                <outlet property="tagsLabel" destination="upZ-OL-Jzo" id="YQR-sn-MU3"/>
             </connections>
             <point key="canvasLocation" x="139" y="114"/>
         </collectionViewCell>

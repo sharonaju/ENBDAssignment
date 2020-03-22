@@ -112,18 +112,16 @@
 		8F58034E242717F6006705C7 /* ENBDAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				8F58034F242717F6006705C7 /* AppDelegate.swift */,
+				8F580358242717FF006705C7 /* Assets.xcassets */,
+				8F58035D242717FF006705C7 /* Info.plist */,
+				8F58035A242717FF006705C7 /* LaunchScreen.storyboard */,
+				8F580355242717F6006705C7 /* Main.storyboard */,
+				8F5803712427188D006705C7 /* Model */,
+				8F580351242717F6006705C7 /* SceneDelegate.swift */,
 				8F580374242718BB006705C7 /* Service */,
 				8F580373242718A0006705C7 /* View */,
 				8F58037224271895006705C7 /* ViewModel */,
-				8F5803712427188D006705C7 /* Model */,
-				8F58034F242717F6006705C7 /* AppDelegate.swift */,
-				8F580351242717F6006705C7 /* SceneDelegate.swift */,
-				8F580355242717F6006705C7 /* Main.storyboard */,
-				8F580358242717FF006705C7 /* Assets.xcassets */,
-				8F58035A242717FF006705C7 /* LaunchScreen.storyboard */,
-				8F58035D242717FF006705C7 /* Info.plist */,
-				8F58037B24271DCB006705C7 /* PhotoCell.swift */,
-				8F58037C24271DCB006705C7 /* PhotoCell.xib */,
 			);
 			path = ENBDAssignment;
 			sourceTree = "<group>";
@@ -157,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				8F580353242717F6006705C7 /* PhotoListViewController.swift */,
+				8F58037B24271DCB006705C7 /* PhotoCell.swift */,
+				8F58037C24271DCB006705C7 /* PhotoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

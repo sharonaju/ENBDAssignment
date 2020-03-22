@@ -13,7 +13,7 @@ struct Photo {
     let likes: Int?
     let comments: Int?
     let largeImageURL: String?
-    var tags = [String]()
+    var tags: String?
     
 }
 extension Photo {
@@ -28,8 +28,6 @@ extension Photo {
         self.likes = json["likes"] as? Int
         self.comments = json["comments"] as? Int
         self.largeImageURL = json["largeImageURL"] as? String
-        if let tags = json["tags"] as? [String]  {
-            self.tags = tags
-        }
+        self.tags = json["tags"] as? String
     }
 }
