@@ -14,10 +14,11 @@ class PhotoListViewController: UIViewController, UISearchBarDelegate {
     // MARK: Properties
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loadMoreActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchTextField: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel: PhotoListViewModel = PhotoListViewModel()
-
+    var isLoadMore = false
     // MARK:
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,9 @@ class PhotoListViewController: UIViewController, UISearchBarDelegate {
     @objc func resignTextField() {
         searchTextField.resignFirstResponder()
     }
+    
+    // MARK: Prepare UI
+
     func prepareUI() {
         searchTextField.resignFirstResponder()
         prepareUIForLoading()
@@ -48,9 +52,19 @@ class PhotoListViewController: UIViewController, UISearchBarDelegate {
                           DispatchQueue.main.async {
                               let isLoading = self?.viewModel.isLoading ?? false
                               if isLoading {
-                                  self?.activityIndicator.startAnimating()
+                                if self?.isLoadMore == true {
+                                    self?.loadMoreActivityIndicator.startAnimating()
+                                    self?.isLoadMore = false
+
+                                } else {
+                                    self?.collectionView.alpha = 0
+                                    self?.activityIndicator.startAnimating()
+                                }
+                                
                               }else {
+                                self?.collectionView.alpha = 1
                                   self?.activityIndicator.stopAnimating()
+                                self?.loadMoreActivityIndicator.stopAnimating()
                                   self?.collectionView.reloadData()
                               }
                           }
@@ -98,7 +112,7 @@ class PhotoListViewController: UIViewController, UISearchBarDelegate {
     // MARK: ShowAlert
     
     func showAlert(message: String) {
-        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: message, message: "", preferredStyle: .alert)
         alert.addAction( UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
@@ -123,6 +137,8 @@ extension PhotoListViewController: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     
+     // MARK: UICollectionViewDelegate
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photoDetail = viewModel.getPhotoDetail(at: indexPath)
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -131,6 +147,14 @@ extension PhotoListViewController: UICollectionViewDelegate, UICollectionViewDat
         self.navigationController?.pushViewController(detailVC, animated: true)
       
     }
-    
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if indexPath.row >= viewModel.numberOfCells - 1 {
+            self.isLoadMore = true
+            viewModel.fetchData(loadMore: true)
+        }
+    }
+
 }
 

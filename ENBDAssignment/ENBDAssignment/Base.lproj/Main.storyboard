@@ -51,14 +51,20 @@
                                 <rect key="frame" x="197" y="465" width="20" height="20"/>
                                 <color key="color" cocoaTouchSystemColor="darkTextColor"/>
                             </activityIndicatorView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dv6-HR-DL7">
+                                <rect key="frame" x="197" y="842" width="20" height="20"/>
+                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oc7-3S-NxT" secondAttribute="bottom" id="0Hx-w3-glE"/>
                             <constraint firstItem="Eb5-g8-Lc5" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="7x5-j5-Kr4"/>
+                            <constraint firstItem="dv6-HR-DL7" firstAttribute="bottom" secondItem="oc7-3S-NxT" secondAttribute="bottom" id="DdK-Uh-3k4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oc7-3S-NxT" secondAttribute="trailing" constant="14" id="RYq-xq-MP7"/>
                             <constraint firstItem="02C-ay-WLN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Rr6-tf-QO3"/>
                             <constraint firstItem="oc7-3S-NxT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="14" id="SQB-dg-nKu"/>
+                            <constraint firstItem="dv6-HR-DL7" firstAttribute="centerX" secondItem="oc7-3S-NxT" secondAttribute="centerX" id="UFO-Eh-Umj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="02C-ay-WLN" secondAttribute="leading" id="ahS-Zb-9he"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="02C-ay-WLN" secondAttribute="trailing" id="e6H-gJ-Kad"/>
                             <constraint firstItem="oc7-3S-NxT" firstAttribute="top" secondItem="02C-ay-WLN" secondAttribute="bottom" constant="14" id="hrp-ZI-NAp"/>
@@ -70,6 +76,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="Eb5-g8-Lc5" id="A0T-Fn-t1O"/>
                         <outlet property="collectionView" destination="oc7-3S-NxT" id="ZqI-rm-cy2"/>
+                        <outlet property="loadMoreActivityIndicator" destination="dv6-HR-DL7" id="7sX-Dt-jU6"/>
                         <outlet property="searchTextField" destination="02C-ay-WLN" id="dFs-B6-uRr"/>
                     </connections>
                 </viewController>

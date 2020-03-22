@@ -16,27 +16,42 @@ final class APIService: NSObject {
     private let baseURL = "https://pixabay.com/api/"
     private let apiKey = "15683635-425a9a1c6515a6813afa9b4d6"
     private var dataTask: URLSessionDataTask?
+    private let pageSize = 20
+    private var currentPage = 0
+    private var maxPageCount = 0
     
-    func search(keyWord: String, completion: @escaping ([Photo]?, ServiceError?) -> ()) {
+    func search(keyWord: String, loadMore: Bool, completion: @escaping ([Photo]?, ServiceError?) -> ()) {
         
-        getData(searchQuery: keyWord) { (result, error) in
+        getData(searchQuery: keyWord, loadMore: loadMore) { (result, error) in
         let dictionaries = result as? NSDictionary
         let hits = dictionaries?.value(forKey: "hits") as? [JSON]
+        if let totalHits = dictionaries?.value(forKey: "totalHits") as? Int {
+            self.maxPageCount = totalHits/self.pageSize
+            }
         completion(hits?.compactMap(Photo.init), error)
         }
         
     }
     
-    private func getData(searchQuery: String, completion: @escaping (Any?, ServiceError?) -> ()) {
+    private func getData(searchQuery: String, loadMore: Bool, completion: @escaping (Any?, ServiceError?) -> ()) {
         
         // Checking Network Connectivity
         if !isNetworkAvailable() {
             completion(nil, ServiceError.noInternetConnection)
             return
         }
+        // pagination
+        if !loadMore {
+            currentPage = 1
+            maxPageCount = 0
+        } else if currentPage < maxPageCount && loadMore {
+            self.currentPage = self.currentPage + 1
+        } else{
+            completion(nil, nil)
+        }
         
         // Creating the URLRequest object
-        let urlString = baseURL + "?key=" + apiKey + "&image_type=photo&q=" + searchQuery
+        let urlString = baseURL + "?key=" + apiKey + "&image_type=photo&q=" + searchQuery + "&page=" + "\(currentPage)" + "&per_page=" + "\(pageSize)"
         guard let url = URL(string: urlString) else {
             completion(nil, ServiceError.other)
             return
@@ -56,7 +71,6 @@ final class APIService: NSObject {
             if let data = data {
                 object = try? JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
             }
-            
             if let httpResponse = response as? HTTPURLResponse, (200..<300) ~= httpResponse.statusCode {
                 completion(object, nil)
             } else {
@@ -74,3 +88,4 @@ final class APIService: NSObject {
            return reachability?.connection != .unavailable
        }
 }
+

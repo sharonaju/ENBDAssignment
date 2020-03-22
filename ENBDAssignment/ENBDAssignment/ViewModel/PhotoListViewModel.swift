@@ -17,7 +17,7 @@ class PhotoListViewModel {
     
     var keyWord: String = "" {
         didSet {
-            fetchData()
+            fetchData(loadMore: false)
         }
     }
     
@@ -46,12 +46,17 @@ class PhotoListViewModel {
     
      private var cellViewModels: [PhotoListCellViewModel] = [PhotoListCellViewModel]()
     
-    func fetchData() {
+    func fetchData(loadMore: Bool) {
         isLoading = true
         isPageRefreshing = true
-        APIService.shared.search(keyWord: keyWord) { (photos, error) in
+        APIService.shared.search(keyWord: keyWord, loadMore: loadMore) { (photos, error) in
             if let searchResults = photos {
-                self.cellViewModels = self.createCellViewModel(images: searchResults)
+                if loadMore {
+                    self.cellViewModels.append(contentsOf: self.createCellViewModel(images: searchResults))
+                } else {
+                   self.cellViewModels = self.createCellViewModel(images: searchResults)
+                }
+                
             } else {
                 self.errorMessage = error?.errorDescription ?? ""
             }

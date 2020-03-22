@@ -15,6 +15,7 @@ class PhotoDetailViewController: UIViewController {
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var viewModel: PhotoDetailViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
