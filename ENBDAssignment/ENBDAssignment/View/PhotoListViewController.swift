@@ -19,7 +19,9 @@ class PhotoListViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel: PhotoListViewModel = PhotoListViewModel()
     var isLoadMore = false
+    
     // MARK:
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

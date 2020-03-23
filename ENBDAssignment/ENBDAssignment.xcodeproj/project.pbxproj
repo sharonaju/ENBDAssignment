@@ -24,6 +24,7 @@
 		8F58038224276E62006705C7 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F58038124276E62006705C7 /* PhotoDetailViewController.swift */; };
 		8F58038524277066006705C7 /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F58038424277066006705C7 /* PhotoDetailViewModel.swift */; };
 		8F58038724277140006705C7 /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F58038624277140006705C7 /* PhotoDetail.swift */; };
+		8F5A19382428446C0027FE10 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5A19372428446C0027FE10 /* APIServiceTests.swift */; };
 		B43E447DFF7FD7034136ED92 /* Pods_ENBDAssignmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A904C95EB345A763EB3465C /* Pods_ENBDAssignmentTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		8F58038124276E62006705C7 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		8F58038424277066006705C7 /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
 		8F58038624277140006705C7 /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetail.swift; sourceTree = "<group>"; };
+		8F5A19372428446C0027FE10 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		98F8CC4FB553E3E7D9942616 /* Pods-ENBDAssignmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ENBDAssignmentTests.release.xcconfig"; path = "Target Support Files/Pods-ENBDAssignmentTests/Pods-ENBDAssignmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		ADAAB1D91CD5E9B08D6BCEBA /* Pods-ENBDAssignmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ENBDAssignmentTests.debug.xcconfig"; path = "Target Support Files/Pods-ENBDAssignmentTests/Pods-ENBDAssignmentTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 			children = (
 				8F58036624271800006705C7 /* ENBDAssignmentTests.swift */,
 				8F58036824271800006705C7 /* Info.plist */,
+				8F5A19372428446C0027FE10 /* APIServiceTests.swift */,
 			);
 			path = ENBDAssignmentTests;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F5A19382428446C0027FE10 /* APIServiceTests.swift in Sources */,
 				8F58036724271800006705C7 /* ENBDAssignmentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,6 +574,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X5X36GCZF;
 				INFOPLIST_FILE = ENBDAssignmentTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -592,6 +597,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X5X36GCZF;
 				INFOPLIST_FILE = ENBDAssignmentTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (

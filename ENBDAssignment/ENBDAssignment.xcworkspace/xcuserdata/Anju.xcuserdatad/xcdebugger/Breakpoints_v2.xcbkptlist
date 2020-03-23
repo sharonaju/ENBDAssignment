@@ -7,16 +7,112 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2AEAC836-A69A-4535-872A-38E905A26498"
+            uuid = "61DD4307-FC1C-4875-9616-B5EE8A4BE6B7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ENBDAssignment/ViewModel/PhotoListViewModel.swift"
+            filePath = "ENBDAssignment/Service/APIService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "fetchData(loadMore:)"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "getData(searchQuery:loadMore:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95253BC1-C17D-43C9-9FD9-63AB8F359037"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ENBDAssignment/View/PhotoListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "search(keyWord:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9C5A2F3F-466C-4ADE-97EF-4A257F7C11E7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ENBDAssignment/View/PhotoListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "searchBarSearchButtonClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6023DF61-4DB5-45A0-A477-E0EB82F69464"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ENBDAssignment/Service/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "search(keyWord:loadMore:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6023DF61-4DB5-45A0-A477-E0EB82F69464 - c4e307d80f723e86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ENBDAssignment.APIService.search(keyWord: Swift.String, loadMore: Swift.Bool, completion: (Swift.Optional&lt;Swift.Array&lt;ENBDAssignment.Photo&gt;&gt;, Swift.Optional&lt;ENBDAssignment.ServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ENBDAssignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Anju/Documents/Projects/ENBDAssignment/ENBDAssignment/ENBDAssignment/Service/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  uuid = "6023DF61-4DB5-45A0-A477-E0EB82F69464 - 9b8ade1da389b5f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;ENBDAssignment.ServiceError&gt;) -&gt; () in ENBDAssignment.APIService.search(keyWord: Swift.String, loadMore: Swift.Bool, completion: (Swift.Optional&lt;Swift.Array&lt;ENBDAssignment.Photo&gt;&gt;, Swift.Optional&lt;ENBDAssignment.ServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "ENBDAssignment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Anju/Documents/Projects/ENBDAssignment/ENBDAssignment/ENBDAssignment/Service/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "232">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CA0D5D94-37D9-4A28-80F5-C5C536DF077F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ENBDAssignment/Service/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "search(keyWord:loadMore:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

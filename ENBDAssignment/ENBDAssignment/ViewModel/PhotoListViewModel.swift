@@ -29,12 +29,6 @@ class PhotoListViewModel {
     
     var page: Int = 0
     
-    var isPageRefreshing:Bool = false {
-        didSet {
-            updatePaginationStatus?()
-        }
-    }
-    
     var updateLoadingStatus: (() -> Void)?
     
     var showError: (() -> Void)?
@@ -43,12 +37,10 @@ class PhotoListViewModel {
     
     var updatePaginationStatus: (() -> Void)?
     
-    
      private var cellViewModels: [PhotoListCellViewModel] = [PhotoListCellViewModel]()
     
     func fetchData(loadMore: Bool) {
         isLoading = true
-        isPageRefreshing = true
         APIService.shared.search(keyWord: keyWord, loadMore: loadMore) { (photos, error) in
             if let searchResults = photos {
                 if loadMore {
@@ -60,7 +52,6 @@ class PhotoListViewModel {
             } else {
                 self.errorMessage = error?.errorDescription ?? ""
             }
-            self.isPageRefreshing = false
             self.isLoading = false
 
         }

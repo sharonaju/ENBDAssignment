@@ -26,7 +26,7 @@ final class APIService: NSObject {
         let dictionaries = result as? NSDictionary
         let hits = dictionaries?.value(forKey: "hits") as? [JSON]
         if let totalHits = dictionaries?.value(forKey: "totalHits") as? Int {
-            self.maxPageCount = totalHits/self.pageSize
+            self.maxPageCount = (totalHits+self.pageSize-1)/self.pageSize
             }
         completion(hits?.compactMap(Photo.init), error)
         }

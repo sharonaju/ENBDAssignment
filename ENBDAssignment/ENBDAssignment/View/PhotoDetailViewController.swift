@@ -10,11 +10,15 @@ import UIKit
 
 class PhotoDetailViewController: UIViewController {
 
+    // MARK: Properies
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var viewModel: PhotoDetailViewModel?
+    
+    // MARK:
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,8 @@ class PhotoDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.prepareUI()
     }
+    
+    // MARK: Prepare UI
     
     func prepareUI() {
         self.view.bringSubviewToFront(activityIndicator)
