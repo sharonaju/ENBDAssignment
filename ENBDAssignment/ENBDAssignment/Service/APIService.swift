@@ -10,13 +10,14 @@ import Foundation
 import Reachability
 
 typealias JSON = [String: Any]
+let kNumberOfItemsPerPage = 20
 
 final class APIService: NSObject {
     public static let shared = APIService()
     private let baseURL = "https://pixabay.com/api/"
     private let apiKey = "15683635-425a9a1c6515a6813afa9b4d6"
     private var dataTask: URLSessionDataTask?
-    private let pageSize = 20
+    private let pageSize = kNumberOfItemsPerPage
     private var currentPage = 0
     private var maxPageCount = 0
     
