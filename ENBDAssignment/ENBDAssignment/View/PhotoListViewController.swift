@@ -152,7 +152,7 @@ extension PhotoListViewController: UICollectionViewDelegate, UICollectionViewDat
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        if indexPath.row >= viewModel.numberOfCells - 1 {
+        if indexPath.row >= viewModel.numberOfCells - 1 && !(viewModel.numberOfCells < 20){  // 20 is the number of items per page.
             self.isLoadMore = true
             viewModel.fetchData(loadMore: true)
         }
